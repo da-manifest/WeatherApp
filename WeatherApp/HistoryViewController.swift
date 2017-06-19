@@ -20,7 +20,8 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.rowHeight = ROW_HEIGHT
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = ROW_HEIGHT
         tableView.tableFooterView = UIView()
         
         let dataManager = WeatherDataManager()
