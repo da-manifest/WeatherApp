@@ -35,12 +35,18 @@ class CustomInteractionController: UIPercentDrivenInteractiveTransition
         switch gestureRecognizer.state
         {
         case .began:
-            transitionInProgress = true
-            navigationController.popViewController(animated: true)
+            if viewTranslation.x > 0
+            {
+                transitionInProgress = true
+                navigationController.popViewController(animated: true)
+            }
         case .changed:
-            let const = CGFloat(fminf(fmaxf(Float(viewTranslation.x / 200.0), 0.0), 1.0))
-            shouldCompleteTransition = const > 0.5
-            update(const)
+            if viewTranslation.x > 0
+            {
+                let const = CGFloat(fminf(fmaxf(Float(viewTranslation.x / 200.0), 0.0), 1.0))
+                shouldCompleteTransition = const > 0.5
+                update(const)
+            }
         case .cancelled, .ended:
             transitionInProgress = false
             if !shouldCompleteTransition || gestureRecognizer.state == .cancelled
