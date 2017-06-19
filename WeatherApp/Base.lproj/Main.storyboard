@@ -173,7 +173,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- %   - м/с" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ocm-6J-tkY" userLabel="conditions">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="- %   - м/с" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ocm-6J-tkY" userLabel="conditions">
                                 <rect key="frame" x="93.5" y="293" width="133.5" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
@@ -200,27 +200,42 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qzg-yT-i0A">
+                                <rect key="frame" x="24" y="337" width="272" height="30"/>
+                                <state key="normal" title="Показать погоду в текущем месте"/>
+                                <connections>
+                                    <action selector="myLocationWeatherAction:" destination="rn3-ZM-bPG" eventType="touchUpInside" id="Gjb-TK-Lsj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="qzg-yT-i0A" firstAttribute="top" secondItem="Ocm-6J-tkY" secondAttribute="bottom" constant="8" id="7VZ-7F-5j4"/>
                             <constraint firstItem="HLi-If-hPU" firstAttribute="top" secondItem="wDL-MF-fG8" secondAttribute="bottom" constant="8" id="9f0-M6-at6"/>
                             <constraint firstItem="mNo-4e-4Fo" firstAttribute="top" secondItem="HLi-If-hPU" secondAttribute="bottom" constant="8" id="A0G-GE-iW2"/>
                             <constraint firstItem="Ocm-6J-tkY" firstAttribute="centerX" secondItem="0Py-d9-akr" secondAttribute="centerX" id="AH1-cg-EZl"/>
                             <constraint firstItem="mNo-4e-4Fo" firstAttribute="centerX" secondItem="0Py-d9-akr" secondAttribute="centerX" id="EC1-dY-O4W"/>
                             <constraint firstAttribute="trailing" secondItem="wDL-MF-fG8" secondAttribute="trailing" id="LTn-2c-jgg"/>
                             <constraint firstItem="HLi-If-hPU" firstAttribute="leading" secondItem="0Py-d9-akr" secondAttribute="leading" id="M5t-Y9-E74"/>
+                            <constraint firstItem="IkL-aB-aLu" firstAttribute="top" relation="greaterThanOrEqual" secondItem="qzg-yT-i0A" secondAttribute="bottom" constant="8" id="NVA-Rs-dJq"/>
                             <constraint firstItem="HLi-If-hPU" firstAttribute="centerX" secondItem="0Py-d9-akr" secondAttribute="centerX" id="O6J-A4-e08"/>
                             <constraint firstAttribute="trailing" secondItem="HLi-If-hPU" secondAttribute="trailing" id="O7b-w6-RZC"/>
                             <constraint firstItem="Ocm-6J-tkY" firstAttribute="top" secondItem="mNo-4e-4Fo" secondAttribute="bottom" constant="8" id="Rbz-8k-uAs"/>
                             <constraint firstItem="mNo-4e-4Fo" firstAttribute="centerY" secondItem="0Py-d9-akr" secondAttribute="centerY" priority="750" id="WF3-bf-WJO"/>
                             <constraint firstItem="wDL-MF-fG8" firstAttribute="top" relation="greaterThanOrEqual" secondItem="liA-zg-cGz" secondAttribute="bottom" constant="8" id="X9l-kH-L7k"/>
                             <constraint firstItem="wDL-MF-fG8" firstAttribute="centerX" secondItem="0Py-d9-akr" secondAttribute="centerX" id="ayb-0K-K6A"/>
-                            <constraint firstItem="IkL-aB-aLu" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Ocm-6J-tkY" secondAttribute="bottom" constant="8" id="l66-Ne-0nt"/>
+                            <constraint firstItem="qzg-yT-i0A" firstAttribute="leading" secondItem="0Py-d9-akr" secondAttribute="leadingMargin" constant="8" id="lyv-H3-wPz"/>
                             <constraint firstItem="wDL-MF-fG8" firstAttribute="leading" secondItem="0Py-d9-akr" secondAttribute="leading" id="ns1-PE-ejo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qzg-yT-i0A" secondAttribute="trailing" constant="8" id="zfb-Nk-9LO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="uCQ-5n-gHp">
                         <barButtonItem key="backBarButtonItem" title="Назад" id="x59-ql-whr"/>
+                        <barButtonItem key="leftBarButtonItem" title="Обновить" id="nFb-GO-QXf">
+                            <connections>
+                                <action selector="updateWeather:" destination="rn3-ZM-bPG" id="ths-yX-SVc"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="История" id="YB1-5R-aM9">
                             <connections>
                                 <segue destination="mdc-03-o4Z" kind="show" id="46C-Mo-Epv"/>

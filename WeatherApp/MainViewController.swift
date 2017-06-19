@@ -18,6 +18,17 @@ class MainViewController: UIViewController, UINavigationControllerDelegate
     @IBOutlet weak var cityName: UIButton!
     @IBOutlet weak var weatherDescription: UILabel!
     
+    @IBAction func updateWeather(_ sender: UIBarButtonItem)
+    {
+        self.updateWeather()
+    }
+    
+    @IBAction func myLocationWeatherAction(_ sender: UIButton)
+    {
+        UserDefaults.standard.set(nil, forKey: "selectedCity")
+        self.updateWeather()
+    }
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
