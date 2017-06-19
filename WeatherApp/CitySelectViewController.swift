@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-class CitySelectViewController: UIViewController
+class CitySelectViewController: UIViewController, UITextFieldDelegate
 {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var searchButton: UIButton!
@@ -47,5 +47,25 @@ class CitySelectViewController: UIViewController
                 }
             }
         }
+    }
+    
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        
+        textField.delegate = self
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        dismissKeyboard()
+        return false
+    }
+    
+    @objc private func dismissKeyboard()
+    {
+        textField.resignFirstResponder()
     }
 }
